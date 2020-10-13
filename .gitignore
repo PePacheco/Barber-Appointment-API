@@ -1,3 +1,5 @@
 node_modules/
 .vscode/
 yarn.lock
+important.txt
+ormconfig.json
