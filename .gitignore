@@ -4,3 +4,5 @@ yarn.lock
 important.txt
 ormconfig.json
 yarn-error.log
+tmp/*
+!tmp/.gitkeep
