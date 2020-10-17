@@ -3,6 +3,7 @@ import { hash } from 'bcryptjs';
 
 import User from '../infra/typeorm/entities/User';
 import AppError from '@shared/errors/AppError';
+import IUsersRepository from '../repositories/IUsersRepository';
 
 interface Request {
     name: string;
@@ -11,12 +12,14 @@ interface Request {
 }
 
 class CreateUserService {
-    public async execute({ name, email, password } : Request): Promise<User> {
-        const userRepository = getRepository(User);
+    private usersRepository: IUsersRepository;
 
-        const checkUserExists = await userRepository.findOne({
-            where: { email }
-        });
+    constructor(userRepository: IUsersRepository) {
+        this.usersRepository = userRepository;
+    }
+
+    public async execute({ name, email, password } : Request): Promise<User> {
+        const checkUserExists = await this.usersRepository.findByEmail(email);
 
         if(checkUserExists) {
             throw new AppError('Email address already used', 400);
@@ -24,13 +27,11 @@ class CreateUserService {
 
         const hashedPassword = await hash(password, 8);
 
-        const user = userRepository.create({
+        const user = await this.usersRepository.create({
             name,
             email,
             password: hashedPassword
         });
-
-        await userRepository.save(user);
 
         return user;
     }   
