@@ -9,6 +9,7 @@ import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
 
 import '@shared/infra/typeorm/index';
+import '@shared/container/index';
 
 const app = express();
 
