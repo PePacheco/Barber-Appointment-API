@@ -3,7 +3,7 @@
     "host": "localhost",
     "port": 5432,
     "username": "pedro",
-    "password": "pedro100",
+    "password": "pedro",
     "database": "gobarber",
     "entities": [
         "./src/modules/**/infra/typeorm/entities/*.ts"
