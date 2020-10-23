@@ -3,6 +3,5 @@ node_modules/
 yarn.lock
 important.txt
 yarn-error.log
-tmp/*
-!tmp/.gitkeep
+tmp/uploads/*
 !tmp/uploads/.gitkeep
