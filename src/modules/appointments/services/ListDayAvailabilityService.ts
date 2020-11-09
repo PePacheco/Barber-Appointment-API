@@ -30,6 +30,8 @@ class ListDayAvailabilityService {
             day
         });
 
+        console.log(appointments);
+        
         const hourStart = 8;
         const currentDate = new Date(Date.now());
 
