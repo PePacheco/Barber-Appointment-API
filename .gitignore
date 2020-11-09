@@ -5,3 +5,5 @@ important.txt
 yarn-error.log
 tmp/uploads/*
 !tmp/uploads/.gitkeep
+.env
+ormconfig.json
