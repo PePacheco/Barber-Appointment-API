@@ -1,4 +1,4 @@
-import { container } from 'tsyringe';
+import { container } from 'tsyringe'; 
 
 import './providers';
 
